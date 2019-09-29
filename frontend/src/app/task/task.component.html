@@ -1,0 +1,30 @@
+
+<h3>{{task.name | uppercase}} Details</h3>
+<div><span>id: </span> {{task._id}}</div>
+<div><span>desc: </span> {{task.detail}}</div>
+<p>{{task.dateCreated}}</p>
+<p>{{task.isDone}}</p>
+
+
+  <div class="task-container">
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+          <input matInput type = "text" name="name"  placeholder="Task name" matFormFieldControl="name" formControlName="name"/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput name="detail"  placeholder="task detail" formControlName="detail" matFormFieldControl="detail"></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput name="dateCreated" placeholder="Choose the start date" formControlName="dateCreated" matFormFieldControl="dateCreated">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+      <mat-form-field>
+          <mat-checkbox  name="isDone" formControlName="isDone" matFormFieldControl="isDone"> task completed?</mat-checkbox>
+      </mat-form-field>
+      <input type = "submit" value = "Send">
+    </form>
+  </div>
