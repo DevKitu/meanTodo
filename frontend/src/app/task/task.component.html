@@ -1,11 +1,4 @@
 
-<h3>{{task.name | uppercase}} Details</h3>
-<div><span>id: </span> {{task._id}}</div>
-<div><span>desc: </span> {{task.detail}}</div>
-<p>{{task.dateCreated}}</p>
-<p>{{task.isDone}}</p>
-
-
   <div class="task-container">
     <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
       <mat-form-field>
