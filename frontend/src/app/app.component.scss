@@ -1,0 +1,57 @@
+/*--header --*/
+
+/*-- Push the navbar items to the right and make space between them --*/
+.header_row {
+  justify-content: space-between;
+}
+/*-- Allign the icon and text --*/
+.menu-item {
+  display: inline-flex;
+  vertical-align: bottom;
+  align-items: center;
+}
+/*-- Make space between logo and text --*/
+.menu-spacer {
+  padding-right: 1.5rem;
+}
+/*-- Fix the top nav on top when scrolling --*/
+/*temp removed until the content is fixed*/
+.nav-toolbar {
+  position: fixed;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+/*-- double the size of the icons --*/
+.icon-2x {
+  transform: scale(2);
+}
+/*-- triple the size of the icons --*/
+.icon-1_5x {
+  transform: scale(1.5);
+}
+
+
+/*-- set the width of the sidenav --*/
+mat-sidenav {
+  width: 240px;
+}
+/*-- set the page height --*/
+.page-wrap {
+ // display: flex;
+  //flex-direction: column;
+  height: 100vh; // same height as browser window height
+}
+/*-- not working, tobe checked --*/
+mat-sidenav-content {
+  overflow: auto;
+  position: top;
+  bottom:0;
+  left:0;
+  right:0;
+  margin: 0 auto;
+  padding: 80px;
+  //align-content: center;
+  //justify-content: center;
+}

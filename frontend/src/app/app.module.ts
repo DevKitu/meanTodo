@@ -12,7 +12,8 @@ import { TasksComponent } from './tasks/tasks.component';
 
 import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component'; // <-- NgModel lives here
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component'; // <-- NgModel lives here
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component'; // <-- NgModel lives here
     TasksComponent,
     LoginComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

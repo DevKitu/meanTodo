@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Todo Task List';
+
+  title = this.data.getTitle();
+  private mediaMatcher: MediaQueryList =
+  matchMedia(`(max-width : ${this.data.getScreenSize()}px)`);
+  constructor(private data: DataService, zone: NgZone) {
+   /* this.mediaMatcher.addListener((result) => {
+      zone.run(() => this.mediaMatcher = result);
+    })*/
+  }
+
+  // check if the screen size is more than 720px and display sidenav
+  isScreenSmall() {
+    return this.mediaMatcher.matches ;
+  }
 }

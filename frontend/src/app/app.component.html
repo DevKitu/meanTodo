@@ -1,55 +1,77 @@
 <header>
-  <mat-toolbar color="secondary">
-    <mat-toolbar-row>
+  <mat-toolbar color="primary" >
+    <mat-toolbar-row class="header_row" >
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
       <span>TO DO LIST APP</span>
-      <span class="menu-spacer"></span>
-      <div fxShow="true" fxHide.lt-md>
+      <div fxShow="true" fxHide.lt-md >
         <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-        <button mat-button > <a routerLink="home" routerLinkActive="active">Home</a> </button>
-        <button mat-button > <a routerLink="login" >Login</a> </button>
-        <button mat-button > <a routerLink="about" >About Us</a> </button>
-        <button mat-button (click)="sidenav.toggle()" fxShow="true" >
-          Dashboard
+        <button mat-button  >
+          <a routerLink="/login" class="menu-item">
+            <mat-icon mat-card-avatar aria-hidden="false" aria-label="person icon" class="icon-2x" >person</mat-icon>
+          </a>
         </button>
-
+        <span class="menu-spacer"></span>
+        <button mat-button (click)="sidenav.toggle()" fxShow="true" class="menu-item">
+            <mat-icon aria-hidden="false" aria-label="settings icon" class="icon-2x" >settings</mat-icon>
+        </button>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
-</header>
-<main style="height: 80vh;">
 
-    <mat-sidenav-container fxFlexFill>
-      <mat-sidenav #sidenav mode="push">
-        <mat-nav-list>
-          <span></span>
-          <mat-divider></mat-divider>
-          <a (click)="sidenav.toggle()" mat-list-item routerLink="home" routerLinkActive="active">Home</a>
-          <a (click)="sidenav.toggle()" mat-list-item  routerLink="login" >Login</a>
-          <a (click)="sidenav.toggle()" mat-list-item routerLink="about" >About Us</a>
-          <mat-divider></mat-divider>
-          <a (click)="sidenav.toggle()" mat-list-item routerLink="tasks" >Tasks List</a>
-        </mat-nav-list>
-      </mat-sidenav>
-      <mat-sidenav-content fxFlexFill>
-        Main content
-        <router-outlet></router-outlet>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
+
+</header>
+<main class="page-wrap">
+      <mat-sidenav-container style="height:100%;width:100%;" >
+
+        <mat-sidenav #sidenav
+                [opened] = "!isScreenSmall()"
+                [mode] = "isScreenSmall() ? 'over' : 'side'"
+                class="mat-elevation-z10" >
+          <mat-nav-list>
+            <mat-toolbar color="accent" >APP Settings</mat-toolbar>
+            <mat-divider></mat-divider>
+            <a (click)="sidenav.toggle()" mat-list-item routerLink="/" routerLinkActive="active">
+              <mat-icon aria-hidden="false" aria-label="home icon" class="icon-1_5x" >home</mat-icon>
+              <span class="menu-spacer"></span>
+              <span >HOME</span>
+            </a>
+            <a (click)="sidenav.toggle()" mat-list-item  routerLink="/login" >
+              <mat-icon aria-hidden="false" aria-label="home icon" class="icon-1_5x">person</mat-icon>
+              <span class="menu-spacer"></span>
+              <span >LOGIN</span>
+            </a>
+            <a (click)="sidenav.toggle()" mat-list-item routerLink="/about" >
+              <mat-icon aria-hidden="false" aria-label="home icon" class="icon-1_5x">contact_mail</mat-icon>
+                <span class="menu-spacer"></span>
+                <span >ABOUT US</span>
+            </a>
+
+            <mat-divider></mat-divider>
+            <a (click)="sidenav.toggle()" mat-list-item routerLink="/tasks" >
+              <mat-icon aria-hidden="false" aria-label="home icon" class="icon-1_5x">list_alt</mat-icon>
+              <span class="menu-spacer"></span>
+              <span >Tasks List</span>
+            </a>
+          </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content >
+          <router-outlet></router-outlet>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
 </main>
-<footer>
-    <mat-toolbar color="white">
-        <mat-toolbar-row>
-          <span class="menu-spacer"></span>
-          <div fxShow="true" fxHide.lt-md>
-            <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-            <p> Footer Top</p>
-          </div>
-        </mat-toolbar-row>
-        <mat-toolbar-row>
-            <p> Footer Bottom</p>
-        </mat-toolbar-row>
-      </mat-toolbar>
-</footer>
+  <footer>
+      <mat-toolbar color="white">
+          <mat-toolbar-row>
+            <span class="menu-spacer"></span>
+            <div fxShow="true" fxHide.lt-md>
+              <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+              <p> Footer Top</p>
+            </div>
+          </mat-toolbar-row>
+          <mat-toolbar-row>
+              <p> Footer Bottom</p>
+          </mat-toolbar-row>
+        </mat-toolbar>
+  </footer>

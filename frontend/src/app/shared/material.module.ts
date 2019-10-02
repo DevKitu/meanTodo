@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {  MatButtonModule, MatIconModule, MatDividerModule,
-          MatToolbarModule, MatFormFieldModule,
-          MatSidenavModule, MatListModule,
+          MatToolbarModule, MatFormFieldModule,MatCardModule,
+          MatSidenavModule, MatListModule, MatOptionModule,
           MatDatepickerModule, MatNativeDateModule,
           MatCheckboxModule, MatInputModule, MatSelectModule
         } from '@angular/material';
@@ -23,9 +23,11 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatDatepickerModule,
     MatCheckboxModule,
     MatNativeDateModule,
-  //  MatInputModule,
+    MatInputModule,
     MatSelectModule,
-    MatDividerModule
+    MatDividerModule,
+    MatOptionModule,
+    MatCardModule
   ],
   exports: [
     MatButtonModule,
@@ -38,9 +40,11 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatDatepickerModule,
     MatCheckboxModule,
     MatNativeDateModule,
-   // MatInputModule,
+    MatInputModule,
     MatSelectModule,
-    MatDividerModule
+    MatDividerModule,
+    MatOptionModule,
+    MatCardModule
   ]
 })
 export class MaterialModule { }
