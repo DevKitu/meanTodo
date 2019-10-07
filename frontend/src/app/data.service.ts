@@ -1,5 +1,32 @@
 import { Injectable } from '@angular/core';
-const MAX_SCREEN_WIDTH_BREAKPOINT = 720;
+import { AppData } from './model/appData';
+
+const appData: AppData = {
+  title: 'Todo Task List',
+  MAX_SCREEN_WIDTH_BREAKPOINT: 720,
+  links: [
+    {
+      name: 'home',
+      url: '/',
+      icon: 'home'
+    },
+    {
+      name: 'aboutus',
+      url: '/about',
+      icon: 'contact_mail'
+    },
+    {
+      name: 'login',
+      url: '/login',
+      icon: 'person'
+    },
+    {
+      name: 'task list',
+      url: '/tasks',
+      icon: 'list_alt'
+    }
+  ]
+ };
 const  title = 'Todo Task List';
 
 @Injectable({
@@ -10,10 +37,14 @@ export class DataService {
   constructor() { }
 
   getScreenSize() {
-    return MAX_SCREEN_WIDTH_BREAKPOINT ;
+    return appData.MAX_SCREEN_WIDTH_BREAKPOINT ;
   }
 
   getTitle() {
-    return title;
+    return appData.title;
+  }
+
+  getLinks() {
+    return appData.links;
   }
 }

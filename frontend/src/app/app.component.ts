@@ -9,8 +9,12 @@ import { DataService } from './data.service';
 export class AppComponent {
 
   title = this.data.getTitle();
+
   private mediaMatcher: MediaQueryList =
   matchMedia(`(max-width : ${this.data.getScreenSize()}px)`);
+
+  // links =
+
   constructor(private data: DataService, zone: NgZone) {
    /* this.mediaMatcher.addListener((result) => {
       zone.run(() => this.mediaMatcher = result);
@@ -21,4 +25,11 @@ export class AppComponent {
   isScreenSmall() {
     return this.mediaMatcher.matches ;
   }
+
+  getSidenavLinks() {
+    // console.log('received links: ', this.data.getLinks());
+    return this.data.getLinks();
+  }
+
+
 }

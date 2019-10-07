@@ -1,11 +1,24 @@
-
-  <div class="task-container">
+  <mat-card-header >
+    <mat-card-title> Create a task here  </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
     <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
       <mat-form-field>
-          <input matInput type = "text" name="name"  placeholder="Task name" matFormFieldControl="name" formControlName="name"/>
+        <mat-label>task name</mat-label>
+        <input matInput type = "text" name="name"  placeholder="name"  formControlName="name"/>
       </mat-form-field>
-
-
-      <input type = "submit" value = "Send">
+      <mat-form-field >
+          <mat-label>details</mat-label>
+        <textarea matInput type = "text" name="detail"  placeholder="details" formControlName="detail"></textarea>
+      </mat-form-field>
+      <mat-form-field >
+          <mat-label>is the task completed?</mat-label>
+          <mat-checkbox matInput formControlName="isDone">Completed</mat-checkbox>
+      </mat-form-field>
     </form>
-  </div>
+  </mat-card-content>
+<mat-card-actions>
+    <button mat-raised-button type = "submit" value = "Send" color="primary"> Save task </button>
+
+</mat-card-actions>
+

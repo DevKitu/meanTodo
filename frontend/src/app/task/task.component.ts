@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../model/task';
 
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-task',
@@ -26,7 +26,7 @@ export class TaskComponent implements OnInit {
       name: [''],
       detail: [''],
       isDone: [''],
-      dateCreated: ['']
+      dateCompleted: ['']
     });
   }
 

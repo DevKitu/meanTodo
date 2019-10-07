@@ -6,9 +6,9 @@
 }
 /*-- Allign the icon and text --*/
 .menu-item {
-  display: inline-flex;
-  vertical-align: bottom;
-  align-items: center;
+  display: inline-flex !important;
+  vertical-align: bottom !important;
+  align-items: center!important;
 }
 /*-- Make space between logo and text --*/
 .menu-spacer {
@@ -44,14 +44,14 @@ mat-sidenav {
   height: 100vh; // same height as browser window height
 }
 /*-- not working, tobe checked --*/
-mat-sidenav-content {
+.mat-sidenav-content {
   overflow: auto;
   position: top;
   bottom:0;
   left:0;
   right:0;
-  margin: 0 auto;
-  padding: 80px;
+  margin: 50px;
+  padding: 20px;
   //align-content: center;
   //justify-content: center;
 }

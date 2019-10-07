@@ -19,45 +19,28 @@
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
-
-
 </header>
 <main class="page-wrap">
       <mat-sidenav-container style="height:100%;width:100%;" >
-
         <mat-sidenav #sidenav
                 [opened] = "!isScreenSmall()"
                 [mode] = "isScreenSmall() ? 'over' : 'side'"
                 class="mat-elevation-z10" >
           <mat-nav-list>
-            <mat-toolbar color="accent" >APP Settings</mat-toolbar>
+            <mat-toolbar color="accent" >APP Settings </mat-toolbar>
             <mat-divider></mat-divider>
-            <a (click)="sidenav.toggle()" mat-list-item routerLink="/" routerLinkActive="active">
-              <mat-icon aria-hidden="false" aria-label="home icon" class="icon-1_5x" >home</mat-icon>
+            <a (click)="sidenav.toggle()" mat-list-item routerLink="{{item.url}}" routerLinkActive="active" *ngFor="let item of getSidenavLinks()">
+              <mat-icon aria-hidden="false" aria-label="home icon" class="icon-1_5x" >{{item.icon}}</mat-icon>
               <span class="menu-spacer"></span>
-              <span >HOME</span>
+              <span >{{item.name}}</span>
             </a>
-            <a (click)="sidenav.toggle()" mat-list-item  routerLink="/login" >
-              <mat-icon aria-hidden="false" aria-label="home icon" class="icon-1_5x">person</mat-icon>
-              <span class="menu-spacer"></span>
-              <span >LOGIN</span>
-            </a>
-            <a (click)="sidenav.toggle()" mat-list-item routerLink="/about" >
-              <mat-icon aria-hidden="false" aria-label="home icon" class="icon-1_5x">contact_mail</mat-icon>
-                <span class="menu-spacer"></span>
-                <span >ABOUT US</span>
-            </a>
-
             <mat-divider></mat-divider>
-            <a (click)="sidenav.toggle()" mat-list-item routerLink="/tasks" >
-              <mat-icon aria-hidden="false" aria-label="home icon" class="icon-1_5x">list_alt</mat-icon>
-              <span class="menu-spacer"></span>
-              <span >Tasks List</span>
-            </a>
           </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content >
+          <mat-card>
           <router-outlet></router-outlet>
+          </mat-card>
         </mat-sidenav-content>
       </mat-sidenav-container>
 </main>
